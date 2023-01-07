@@ -16,8 +16,8 @@ import time
 parser = argparse.ArgumentParser(description="Joint Extraction of Entities and Relations")
 parser.add_argument('--batch_size', type=int, default=32, metavar='N',
                     help='batch size (default: 32)')
-parser.add_argument('--cpu', action='store_false',
-                    help='use CPU (default: True)')
+parser.add_argument('--cuda', action='store_false',
+                    help='use CUDA (default: True)')
 parser.add_argument('--dropout', type=float, default=0.5,
                     help='dropout applied to layers (default: 0.5)')
 parser.add_argument('--emb_dropout', type=float, default=0.25,
@@ -56,8 +56,12 @@ args = parser.parse_args()
 
 # Set the random seed manually for reproducibility.
 torch.manual_seed(args.seed)
+if torch.cuda.is_available():
+    if not args.cuda:
+        print("WARNING: You have a CUDA device, so you should probably run with --cuda")
 
-device = torch.device("cpu")
+print(args)
+device = torch.device("cuda" if args.cuda else "cpu")
 
 
 charset = Charset()
@@ -133,7 +137,7 @@ char_channels = [args.emsize] + [args.char_nhid] * args.char_layers
 word_channels = [word_embedding_size + args.char_nhid] + [args.word_nhid] * args.word_layers
 
 if os.path.exists("model.pt"):
-    model=torch.load('model.pt')
+    model=torch.load('model.pt',map_location='cpu')
 else:
     model = Model(charset_size=len(charset), char_embedding_size=args.emsize, char_channels=char_channels,
                   char_padding_idx=charset["<pad>"], char_kernel_size=args.char_kernel_size, weight=word_embeddings,
