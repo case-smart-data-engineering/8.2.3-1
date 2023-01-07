@@ -16,8 +16,6 @@ import time
 parser = argparse.ArgumentParser(description="Joint Extraction of Entities and Relations")
 parser.add_argument('--batch_size', type=int, default=32, metavar='N',
                     help='batch size (default: 32)')
-parser.add_argument('--cuda', action='store_false',
-                    help='use CUDA (default: True)')
 parser.add_argument('--dropout', type=float, default=0.5,
                     help='dropout applied to layers (default: 0.5)')
 parser.add_argument('--emb_dropout', type=float, default=0.25,
@@ -56,12 +54,7 @@ args = parser.parse_args()
 
 # Set the random seed manually for reproducibility.
 torch.manual_seed(args.seed)
-if torch.cuda.is_available():
-    if not args.cuda:
-        print("WARNING: You have a CUDA device, so you should probably run with --cuda")
-
-print(args)
-device = torch.device("cuda" if args.cuda else "cpu")
+device = torch.device("cpu")
 
 
 charset = Charset()
@@ -224,15 +217,16 @@ def get_triplets(tags):
                     e2 = role2[idx]
                     triplets.append((e1, relation_label, e2))
                     del role2[idx]
+                    
     return triplets
 
 
 if __name__ == "__main__":
     # Load the best saved model.
     with open(args.save, 'rb') as f:
-        model = torch.load(f)
+        model = torch.load(f,map_location='cpu')
 
-    # Run on test data
+    # Run on test data 
     test_loss, precision, recall, f1 = evaluate(test_data_groups)
     print("=" * 118)
     print("| End of Training | Test Loss {:5.3f} | Precision {:5.3f} "

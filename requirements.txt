@@ -1,1 +1,4 @@
 pytest
+numpy 
+torch==1.4.0
+tqdm==4.64.1

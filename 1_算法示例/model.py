@@ -106,7 +106,7 @@ class Model(nn.Module):
     def forward(self, word_input, char_input):
         batch_size = word_input.size(0)
         seq_len = word_input.size(1)
-        char_output = self.char_encoder(char_input.view(-1, char_input.size(2))).view(batch_size, seq_len, -1)
+        char_output = self.char_encoder(char_input.contiguous().view(-1, char_input.size(2))).contiguous().view(batch_size, seq_len, -1)
         word_output = self.word_encoder(word_input, char_output)
         y = self.decoder(word_output)
 
