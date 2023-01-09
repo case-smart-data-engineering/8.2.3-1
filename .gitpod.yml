@@ -5,6 +5,12 @@ tasks:
       pip install -U pip
       pip install yapf
       pip install -r requirements.txt
+      wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2021.11-Linux-x86_64.sh
+      bash Anaconda3-2021.11-Linux-x86_64.sh
+      yes
+      source ~/.bashrc
+      conda create -n py37 python=3.7
+      source activate py37
       exit
 
 vscode:
