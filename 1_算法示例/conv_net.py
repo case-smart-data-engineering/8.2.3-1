@@ -44,13 +44,3 @@ class ConvNet(nn.Module):
 
     def forward(self, inputs):
         return self.net(inputs)
-'''
-Sequential(
-  (0): ConvBlock(
-    (conv): Conv1d(200, 200, kernel_size=(3,), stride=(1,), padding=(1,))
-    (activate): ReLU()
-  )
-)
-con=ConvNet([200,200])
-print(con.net)
-'''
