@@ -20,6 +20,4 @@
 /business/company/advisors	19
 /people/person/religion	20
 /people/ethnicity/geographic_distribution	21
-/people/person/profession	22
-/business/company/industry	23
-None	24
+None	22

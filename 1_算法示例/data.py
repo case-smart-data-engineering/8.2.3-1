@@ -127,7 +127,6 @@ if __name__ == "__main__":
 
     relation_labels.save('data/NYT_CoType/relation_labels.txt')
     entity_labels.save('data/NYT_CoType/entity_labels.txt')
-    tag_set.save("data/NYT_CoType/tag2id.txt")
 
 # of overlaps in train data: 42924
 # of overlaps in test data: 18
