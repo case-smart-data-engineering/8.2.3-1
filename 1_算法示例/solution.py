@@ -21,11 +21,11 @@ from tqdm import tqdm
 from torch.optim import Adam, SGD
 from pytorch_transformers import AdamW, WarmupLinearSchedule
 
-from lib.preprocessings import Chinese_selection_preprocessing, Conll_selection_preprocessing, Conll_bert_preprocessing
-from lib.dataloaders import Selection_Dataset, Selection_loader
-from lib.metrics import F1_triplet, F1_ner
-from lib.models import MultiHeadSelection
-from lib.config import Hyper
+from lib_8.preprocessings import Chinese_selection_preprocessing, Conll_selection_preprocessing, Conll_bert_preprocessing
+from lib_8.dataloaders import Selection_Dataset, Selection_loader
+from lib_8.metrics import F1_triplet, F1_ner
+from lib_8.models import MultiHeadSelection
+from lib_8.config import Hyper
 
 
 parser = argparse.ArgumentParser()
