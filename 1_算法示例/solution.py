@@ -313,17 +313,17 @@ class Runner(object):
         print(line[a][0][0])
         print("抽取出来的实体关系如下")
         for i in triples_gold[a]:
-            print("实体A：" + i['object'] + " 关系：" + i['predicate'] + " 实体B：" + i['subject'])
+            print("头实体：" + i['object'] + " 关系：" + i['predicate'] + " 尾实体：" + i['subject'])
         print("\n抽取句子如下：")
         print(line[b][0][0])
         print("抽取出来的实体关系如下")
         for i in triples_gold[b]:
-            print("实体A：" + i['object'] + " 关系：" + i['predicate'] + " 实体B：" + i['subject'])
+            print("头实体：" + i['object'] + " 关系：" + i['predicate'] + " 尾实体：" + i['subject'])
         print("\n抽取句子如下：")
         print(line[c][0][0])
         print("抽取出来的实体关系如下")
         for i in triples_gold[c]:
-            print("实体A：" + i['object'] + " 关系：" + i['predicate'] + " 实体B：" + i['subject'])
+            print("头实体：" + i['object'] + " 关系：" + i['predicate'] + " 尾实体：" + i['subject'])
 
 
     def evaluation(self):

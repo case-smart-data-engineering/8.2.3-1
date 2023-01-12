@@ -113,7 +113,7 @@ class Runner(object):
                 # 将 o 中 'decoded_tag' 列表中索引为 i 的元素添加到 ner_predict 列表中。
                 # 将 o 中 'gold_tags' 列表中索引为 i 的元素添加到 ner_gold 列表中。
                 # 将 o 中 'selection_triplets' 列表中索引为 i 的元素添加到 triples_predict 列表中。
-                # 
+                # 将 o 中 'spo_gold' 列表中索引为 i 的元素添加到 triples_golds 列表中。
 
         for ts in triples_golds:
             ttt = []
