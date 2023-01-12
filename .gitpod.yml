@@ -11,6 +11,13 @@ tasks:
       { echo "y"; } | conda create -n py37 python=3.7.0
       source activate py37
       pip install torch==1.3.0
+      pip install prefetch-generator==1.0.3
+      pip install tqdm==4.64.1
+      pip install pytorch-transformers==1.2.0
+      pip install cached-property==1.5.2
+      pip install overrides==7.3.1
+      pip install pytorch-crf -i https://pypi.tuna.tsinghua.edu.cn/simple/
+
       
 
 vscode:

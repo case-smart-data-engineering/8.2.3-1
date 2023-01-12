@@ -4,11 +4,8 @@
 
 1. 按 `CTRL + P` 打开命令行面板，输入 "terminal: Create New Terminal" 打开一个命令行终端.
 2. 在命令行里输入 `cd 1_算法示例` 并按 `ENTER` 进入"算法示例"目录。
-3. 在命令行里输入 `python predict.py` 按 `ENTER` 运行示例程序，已经上传了训练好的模型可以直接使用。
-4. 如果需要手动训练模型，请按以下步骤进行：
-- 在命令行里输入 `cd 1_算法示例` 并按 `ENTER` 进入"算法示例"目录。
-- 在命令行里输入 `python data.py` 按 `ENTER` 运行，会在1_算法示例/data/NYT_CoType下生成entity_labels.txt、relation_labels.txt等文件。
-- 在命令行里输入 `python train.py` 按 `ENTER` 运行，即可进行模型训练。
+3. 在命令行里输入 `python solution.py` 按 `ENTER` 运行示例程序。
+
 
 
 ## 文件指南
