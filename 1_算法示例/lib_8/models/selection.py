@@ -5,6 +5,9 @@ import torch.nn.functional as F
 import json
 import os
 import copy
+import sys
+sys.path.append('/workspace/8.2.3-1/1_算法示例')
+print(sys.path)
 
 from typing import Dict, List, Tuple, Set, Optional
 from functools import partial

@@ -10,6 +10,7 @@ tasks:
       source ~/.bashrc
       { echo "y"; } | conda create -n py37 python=3.7.0
       source activate py37
+      pip install pytest
       pip install torch==1.3.0
       pip install prefetch-generator==1.0.3
       pip install tqdm==4.64.1
