@@ -62,19 +62,13 @@ class Runner(object):
         self.model = MultiHeadSelection(self.hyper).cpu()
 
     def preprocessing(self):
-        if self.exp_name == 'conll_selection_re':
-            self.preprocessor = Conll_selection_preprocessing(self.hyper)
-        elif self.exp_name == 'data_selection_re':
-            self.preprocessor = Conll_selection_preprocessing(self.hyper)
-        elif self.exp_name == 'chinese_selection_re':
-            self.preprocessor = Chinese_selection_preprocessing(self.hyper)
-        elif self.exp_name == 'conll_bert_re':
-            self.preprocessor = Conll_bert_preprocessing(self.hyper)
+        self.preprocessor = Chinese_selection_preprocessing(self.hyper)
         self.preprocessor.gen_relation_vocab()
         self.preprocessor.gen_all_data()
         self.preprocessor.gen_vocab(min_freq=1)
         # for ner only
         self.preprocessor.gen_bio_vocab()
+        print('解析完毕')
 
     def run(self, mode: str):
         if mode == 'preprocessing':
