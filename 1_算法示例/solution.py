@@ -342,9 +342,6 @@ class Runner(object):
                     epoch, self.hyper.epoch_num))
             self.save_model(epoch)
 
-            if epoch % self.hyper.print_epoch == 0 and epoch > 3:
-                self.evaluation()
-
 if __name__ == "__main__":
     config = Runner(exp_name='chinese_selection_re')
     config.run(mode=args.mode)
