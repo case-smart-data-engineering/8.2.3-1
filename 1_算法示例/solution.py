@@ -290,7 +290,7 @@ class Runner(object):
 
         print("\n语句如下：")
         print(line[19][0][0])
-        print("抽取出来的实体关系如下")
+        print("抽取出来的实体关系如下:")
         for i in triples_gold[19]:
             print("头实体：" + i['object'] + " 关系：" + i['predicate'] + " 尾实体：" + i['subject'])
        
