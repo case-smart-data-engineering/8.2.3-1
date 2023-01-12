@@ -1,10 +1,5 @@
 # -*- coding:utf-8 -*-
 
-# author  : hzh
-# contact : 1006625340@qq.com
-# datetime: Created in 2023/1/11 18:51
-# software: PyCharm
-
 import os
 import json
 import time
@@ -29,11 +24,6 @@ from lib_8.config import Hyper
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--exp_name',
-                    '-e',
-                    type=str,
-                    default='chinese_selection_re',
-                    help='experiments/exp_name.json')
 parser.add_argument('--mode',
                     '-m',
                     type=str,
@@ -303,27 +293,13 @@ class Runner(object):
                 ttt = [tt['subject'], tt['predicate'], tt['object']]
                 if ttt not in tl:
                     tl.append(ttt)
-        # 生成三个不等的随机数
-        numlist = random.sample(range(0, len(line)), 3)
-        a = numlist[0]
-        b = numlist[1]
-        c = numlist[2]
-        print("随机抽取三个句子如下：")
-        print("\n抽取语句如下：")
-        print(line[a][0][0])
+
+        print("\n语句如下：")
+        print(line[19][0][0])
         print("抽取出来的实体关系如下")
-        for i in triples_gold[a]:
+        for i in triples_gold[19]:
             print("头实体：" + i['object'] + " 关系：" + i['predicate'] + " 尾实体：" + i['subject'])
-        print("\n抽取句子如下：")
-        print(line[b][0][0])
-        print("抽取出来的实体关系如下")
-        for i in triples_gold[b]:
-            print("头实体：" + i['object'] + " 关系：" + i['predicate'] + " 尾实体：" + i['subject'])
-        print("\n抽取句子如下：")
-        print(line[c][0][0])
-        print("抽取出来的实体关系如下")
-        for i in triples_gold[c]:
-            print("头实体：" + i['object'] + " 关系：" + i['predicate'] + " 尾实体：" + i['subject'])
+       
 
 
     def evaluation(self):
@@ -370,7 +346,7 @@ class Runner(object):
                 self.evaluation()
 
 if __name__ == "__main__":
-    config = Runner(exp_name=args.exp_name)
+    config = Runner(exp_name='chinese_selection_re')
     config.run(mode=args.mode)
 
 
