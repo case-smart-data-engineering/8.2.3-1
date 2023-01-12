@@ -8,13 +8,9 @@
 
 
 
-## 文件指南
+## 目录指南
 
-- data:data文件夹存储了数据集文件和word2vec文件。
-- conv_net.py:CNN模型文件。
-- data.py:处理data文件并存储为二进制文件。
-- model.pt:训练好的模型文件，直接使用。
-- model.py:主要的模型文件。
-- predict.py:运行示例代码文件。
-- utils.py:存储了工具类的文件。
-- train.py:训练模型文件。
+- data:data目录存储了数据集文件。
+- experiments:experiments目录存储了配置文件chinese_selection_re.json。
+- lib:lib目录存储了自定义的库文件。
+- saved_models:saved_models目录存储了训练好的模型文件。
