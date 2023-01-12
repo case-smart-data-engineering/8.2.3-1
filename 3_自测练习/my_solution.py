@@ -109,10 +109,11 @@ class Runner(object):
 
         for o in out:
             for i in range(len(o['decoded_tag'])):
-                ner_predict.append(o['decoded_tag'][i])
-                ner_gold.append(o['gold_tags'][i])
-                triples_predict.append(o['selection_triplets'][i])
-                triples_golds.append(o['spo_gold'][i])
+                raise NotImplementedError('请补全代码块3，详情见注释')
+                # 将 o 中 'decoded_tag' 列表中索引为 i 的元素添加到 ner_predict 列表中。
+                # 将 o 中 'gold_tags' 列表中索引为 i 的元素添加到 ner_gold 列表中。
+                # 将 o 中 'selection_triplets' 列表中索引为 i 的元素添加到 triples_predict 列表中。
+                # 
 
         for ts in triples_golds:
             ttt = []
@@ -232,17 +233,13 @@ class Runner(object):
             word = []
             w = []
             for j in range(len(ner_predict[i])):
-                if ner_predict[i][j][0] == 'B' and ner_predict[i][j + 1][0] == 'O':
-                    w.append(j)
-                    word.append(w)
-                    w = []
-                elif ner_predict[i][j][0] == 'B' and ner_predict[i][j + 1][0] == 'I':
-                    w.append(j)
-                elif ner_predict[i][j][0] == 'I':
-                    w.append(j)
-                else:
-                    word.append(w)
-                    w = []
+                raise NotImplementedError('请补全代码块2，详情见注释')
+                # 检查当前字符串的第一个字符是否为 'B' 和下一个字符是否为 'O'。
+                # 如果是这种情况，将当前索引 j 添加到 w 列表中，并将 w 列表添加到 word 列表中，然后将 w 列表重置为空。
+                # 如果当前字符串的第一个字符为 'B' 且下一个字符为 'I'，它将当前索引 j 添加到 w 列表中。
+                # 如果当前字符串的第一个字符为 'I'，它将当前索引 j 添加到 w 列表中
+                # 如果没有以上情况，那么它将 w 列表添加到 word 列表中，并将 w 列表重置为空
+                
             words = []
             for w in word:
                 if len(w) != 0:
@@ -277,10 +274,11 @@ class Runner(object):
         with torch.no_grad():
             out=[]
             for batch_ndx, sample in pbar:
-                output = self.model(sample, is_train=False)
-                self.triplet_metrics(output['selection_triplets'], output['spo_gold'])
-                self.ner_metrics(output['gold_tags'], output['decoded_tag'])
-                out.append(output)
+                raise NotImplementedError('请补全代码块1，详情见注释')
+                # 使用 self.model 对象处理输入 sample，将输出赋值给变量 output。
+                # 使用 self.triplet_metrics 函数对 output 中的 'selection_triplets' 和 'spo_gold' 进行评估。
+                # 使用 self.ner_metrics 函数对 output 中的 'gold_tags' 和 'decoded_tag' 进行评估。
+                # 将 output 添加到 out 列表中
             self.result = out
 
             res = self.write_result()
