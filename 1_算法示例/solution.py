@@ -285,7 +285,7 @@ class Runner(object):
             line.append(List)
 
 
-        with open('data/yizudata2/triples.csv','w',encoding='utf-8-sig',newline='') as f:
+        with open('data/writeDate/triples.csv','w',encoding='utf-8-sig',newline='') as f:
             writer=csv.writer(f)
             tl=[]
             headers=['头实体','关系','尾实体']
